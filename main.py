@@ -95,7 +95,7 @@ Music.pack()
 Music.place(x=50, y=0)
 start_frame.pack()
 
-bg1 = tk.PhotoImage(file = "Fallout.png")
+bg1 = tk.PhotoImage(file = "TheBall.png")
 
 #creates a label, making the background.
 LABEL = tk.Label(quiz_frame, image = bg1,width=100,)
@@ -105,24 +105,11 @@ LABEL.place(x=0,y=0,relwidth=1, relheight=1)
 canvas = tk.Canvas(quiz_frame, width=1920, height=1080)
 canvas.pack(fill='both', expand=True,)
 
-canvas.create_image(0,-80, image=bg1, anchor="nw")
+canvas.create_image(0,0, image=bg1, anchor="nw")
 
 def goback():
     quiz_frame.forget()
     start_frame.pack()
-
-def switch():
-    global is_on
-
-    if is_on:  
-        Music.config(image=soundbuttonoff)
-        pygame.mixer.music.load("Doc'sTheme.mp3")
-        pygame.mixer.music.play(loops=0)
-        is_on = False
-    else:
-       Music.config(image=soundbutton)
-       pygame.mixer.music.stop()
-       is_on = True
 
 #this is the button to toggle the switch
 canvas3 = tk.Canvas(quiz_frame, width = 100, height = 100)
@@ -133,7 +120,15 @@ Music.pack()
 
 Music.place(x=50, y=0)
 
-quitbutton1 = ImageTk.PhotoImage(Image.open('Quit.png'))
+quitbutton1 = ImageTk.PhotoImage(Image.open('A1.png'))
+
+canvas2 = tk.Canvas(quiz_frame, width = 100, height = 100)
+playbutton1 = tk.Button(quiz_frame, text = "oihfdoahfawbhuivwaboi", image = quitbutton1, command = root.destroy)
+playbutton1.configure(width=520, bg='black')
+playbutton_menu1 = canvas2.create_window(50,50)
+playbutton1.pack()
+
+playbutton1.place(x=100, y=550)
 
 quiz_frame.pack()
 
