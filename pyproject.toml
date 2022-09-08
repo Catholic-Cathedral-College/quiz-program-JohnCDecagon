@@ -11,10 +11,12 @@ replit = "^3.2.4"
 Flask = "^2.2.0"
 Everything-Tkinter = "^0.2"
 Pillow-PIL = "^0.1dev"
+pygame = "^2.1.2"
 
 [tool.poetry.dev-dependencies]
 debugpy = "^1.6.2"
 python-lsp-server = {extras = ["yapf", "rope", "pyflakes"], version = "^1.5.0"}
+toml = "^0.10.2"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
