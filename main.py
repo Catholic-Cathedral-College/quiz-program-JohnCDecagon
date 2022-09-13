@@ -3,16 +3,11 @@ from email.mime import image
 import tkinter as tk
 from turtle import back
 import PIL
-import pygame
-from PIL import ImageTk, Image
-from replit import audio
 
+from PIL import ImageTk, Image
 
 root = tk.Tk()
 root.geometry('1487x744')
-#keeps track the music button is on/off
-global is_on
-is_on = True
 
 #defines the function that will swap from the start menu frame to the quiz frame
 def startquiz():
@@ -22,6 +17,7 @@ def startquiz():
 #defines the frames
 start_frame = tk.Frame(root,width=1000, height=1000)
 quiz_frame  = tk.Frame(root,width=1000, height=1000)
+quiz_frame2 = tk.Frame(root,width=1000, height=1000)
 
 #defines the background image
 bg = tk.PhotoImage(file = "Fallout.png")
@@ -59,40 +55,6 @@ playbutton_menu1 = canvas2.create_window(50,50)
 playbutton1.pack()
 
 playbutton1.place(x=485, y=550)
-
-#define sound button images
-soundbutton = ImageTk.PhotoImage(Image.open('Sound.png'))
-soundbuttonoff = ImageTk.PhotoImage(Image.open('Sound.png'))
-
-#defines the switch function, so we can toggle the music player
-def switch():
-    global is_on
-
-    if is_on:  
-        Music.config(image=soundbuttonoff)
-        audio.play_file("Doc'sTheme.mp3")
-        audio.play_file
-        {
-    "Paused": True,
-    "Doesloop": True,
-    "Loopcount":0
-        }
-    else:
-      Music.config(image=soundbutton)
-    audio.play_file("Doc'sTheme.mp3")
-    audio.play_file
-    {
-    "Paused": False,
-        }
-
-#this is the button to toggle the switch
-canvas3 = tk.Canvas(start_frame, width = 100, height = 100)
-Music = tk.Button(start_frame, text = "oihfdoahfawbhuivwaboi", image = soundbutton, command = switch)
-Music.configure(width=100, bg='black')
-Music_menu = canvas3.create_window(50,50)
-Music.pack()
-
-Music.place(x=50, y=0)
 start_frame.pack()
 
 bg1 = tk.PhotoImage(file = "TheBall.png")
@@ -108,28 +70,56 @@ canvas.pack(fill='both', expand=True,)
 canvas.create_image(0,0, image=bg1, anchor="nw")
 
 def goback():
-    quiz_frame.forget()
     start_frame.pack()
+    quiz_frame.forget()
 
-#this is the button to toggle the switch
-canvas3 = tk.Canvas(quiz_frame, width = 100, height = 100)
-Music = tk.Button(quiz_frame, text = "oihfdoahfawbhuivwaboi", image = soundbutton, command = switch)
-Music.configure(width=100, bg='black')
-Music_menu = canvas1.create_window(50,50)
-Music.pack()
-
-Music.place(x=50, y=0)
+def nextpage():
+  quiz_frame.forget()
+  quiz_frame2.pack()
 
 quitbutton1 = ImageTk.PhotoImage(Image.open('A1.png'))
 
 canvas2 = tk.Canvas(quiz_frame, width = 100, height = 100)
-playbutton1 = tk.Button(quiz_frame, text = "oihfdoahfawbhuivwaboi", image = quitbutton1, command = root.destroy)
-playbutton1.configure(width=520, bg='black')
+playbutton1 = tk.Button(quiz_frame, text = "oihfdoahfawbhuivwaboi", image = quitbutton1, command = nextpage)
+playbutton1.configure(width=500, bg='black')
 playbutton_menu1 = canvas2.create_window(50,50)
 playbutton1.pack()
 
-playbutton1.place(x=100, y=550)
+
+
+playbutton1.place(x=0, y=550)
+
+ans2 = ImageTk.PhotoImage(Image.open('Untitled.png'))
+
+canvas3 = tk.Canvas(quiz_frame, width = 100, height = 100)
+playbutton2 = tk.Button(quiz_frame, text = "oihfdoahfawbhuivwaboi", image = ans2, command = nextpage)
+playbutton2.configure(width=500, bg='black')
+playbutton_menu2 = canvas2.create_window(50,50)
+playbutton2.pack()
+
+ans3 = ImageTk.PhotoImage(Image.open('A2.png'))
+
+playbutton2.place(x=500, y=550)
+
+canvas4 = tk.Canvas(quiz_frame, width = 100, height = 100)
+playbutton3 = tk.Button(quiz_frame, text = "oihfdoahfawbhuivwaboi", image = ans3, command = nextpage)
+playbutton3.configure(width=500, bg='black')
+playbutton_menu3 = canvas2.create_window(50,50)
+playbutton3.pack()
+
+playbutton3.place(x=1000, y=550)
+
+BACK = ImageTk.PhotoImage(Image.open('back.png'))
+
+canvas5 = tk.Canvas(quiz_frame, width = 100, height = 100)
+playbutton4 = tk.Button(quiz_frame, text = "oihfdoahfawbhuivwaboi", image = BACK, command = goback)
+playbutton4.configure(width=300, bg='black')
+playbutton_menu4 = canvas2.create_window(50,50)
+playbutton4.pack()
+
+playbutton4.place(x=0, y=650)
 
 quiz_frame.pack()
+
 
 root.mainloop()
