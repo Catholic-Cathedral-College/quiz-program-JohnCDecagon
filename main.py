@@ -69,10 +69,6 @@ canvas.pack(fill='both', expand=True,)
 
 canvas.create_image(0,0, image=bg1, anchor="nw")
 
-def goback():
-    start_frame.pack()
-    quiz_frame.forget()
-
 def nextpage():
   quiz_frame.forget()
   quiz_frame2.pack()
@@ -85,7 +81,10 @@ playbutton1.configure(width=500, bg='black')
 playbutton_menu1 = canvas2.create_window(50,50)
 playbutton1.pack()
 
-
+def goback():
+  quiz_frame.forget()
+  start_frame.pack()
+  quiz_frame2.forget()
 
 playbutton1.place(x=0, y=550)
 
@@ -112,7 +111,7 @@ playbutton3.place(x=1000, y=550)
 BACK = ImageTk.PhotoImage(Image.open('back.png'))
 
 canvas5 = tk.Canvas(quiz_frame, width = 100, height = 100)
-playbutton4 = tk.Button(quiz_frame, text = "oihfdoahfawbhuivwaboi", image = BACK, command = goback)
+playbutton4 = tk.Button(quiz_frame, text = "oihfdoah", image = BACK, command = goback)
 playbutton4.configure(width=300, bg='black')
 playbutton_menu4 = canvas2.create_window(50,50)
 playbutton4.pack()
@@ -121,5 +120,32 @@ playbutton4.place(x=0, y=650)
 
 quiz_frame.pack()
 
+#defines the background image
+bg2 = tk.PhotoImage(file = "nextquest.png")
 
-root.mainloop()
+#creates a label, making the background.
+LABEL = tk.Label(quiz_frame2, image=bg2,width=100,)
+LABEL.place(x=0,y=0,relwidth=1, relheight=1)
+
+#makes the canvas for the background
+canvas = tk.Canvas(quiz_frame2, width=1920, height=1080)
+canvas.pack(fill='both',)
+
+canvas.create_image(0,0, image=bg2, anchor="nw")
+
+def goback2():
+  quiz_frame.pack()
+  start_frame.forget()
+  quiz_frame2.forget()
+
+BACK = ImageTk.PhotoImage(Image.open('back.png'))
+
+canvas6 = tk.Canvas(quiz_frame2, width = 100, height = 100)
+playbutton5 = tk.Button(quiz_frame2, text = "oihfdoahfawbhuivwaboi", image = BACK, command = goback2)
+playbutton5.configure(width=300, bg='black')
+playbutton_menu5 = canvas3.create_window(50,50)
+playbutton5.pack()
+
+playbutton5.place(x=0, y=650)
+
+quiz_frame2.pack()
