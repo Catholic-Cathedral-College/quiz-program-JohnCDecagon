@@ -8,6 +8,7 @@ from PIL import ImageTk, Image
 
 root = tk.Tk()
 root.geometry('1487x744')
+root.title("FalloutQuiz")
 
 #defines the function that will swap from the start menu frame to the quiz frame
 def startquiz():
@@ -18,6 +19,7 @@ def startquiz():
 start_frame = tk.Frame(root,width=1000, height=1000)
 quiz_frame  = tk.Frame(root,width=1000, height=1000)
 quiz_frame2 = tk.Frame(root,width=1000, height=1000)
+quiz_frame3 = tk.Frame(root,width=1000, height=1000)
 
 #defines the background image
 bg = tk.PhotoImage(file = "Fallout.png")
@@ -108,7 +110,7 @@ playbutton3.pack()
 
 playbutton3.place(x=1000, y=550)
 
-BACK = ImageTk.PhotoImage(Image.open('back.png'))
+BACK = ImageTk.PhotoImage(Image.open('restart.png'))
 
 canvas5 = tk.Canvas(quiz_frame, width = 100, height = 100)
 playbutton4 = tk.Button(quiz_frame, text = "oihfdoah", image = BACK, command = goback)
@@ -133,19 +135,49 @@ canvas.pack(fill='both',)
 
 canvas.create_image(0,0, image=bg2, anchor="nw")
 
+BACK2 = ImageTk.PhotoImage(Image.open('restart.png'))
+
 def goback2():
-  quiz_frame.pack()
-  start_frame.forget()
+  quiz_frame.forget()
+  start_frame.pack()
   quiz_frame2.forget()
 
-BACK = ImageTk.PhotoImage(Image.open('back.png'))
-
 canvas6 = tk.Canvas(quiz_frame2, width = 100, height = 100)
-playbutton5 = tk.Button(quiz_frame2, text = "oihfdoahfawbhuivwaboi", image = BACK, command = goback2)
+playbutton5 = tk.Button(quiz_frame2, text = "oihfdoah", image = BACK2, command = goback2)
 playbutton5.configure(width=300, bg='black')
-playbutton_menu5 = canvas3.create_window(50,50)
+playbutton_menu5 = canvas2.create_window(50,50)
 playbutton5.pack()
 
 playbutton5.place(x=0, y=650)
+
+Joshua = ImageTk.PhotoImage(Image.open('Joshua.png'))
+
+canvas7 = tk.Canvas(quiz_frame2, width = 100, height = 100)
+playbutton6 = tk.Button(quiz_frame2, text = "oihfdoahfawbhuivwaboi", image = Joshua, command = nextpage)
+playbutton6.configure(width=500,height=100, bg='black')
+playbutton_menu6 = canvas2.create_window(50,50)
+playbutton6.pack()
+
+playbutton6.place(x=1000, y=550)
+
+Lanius = ImageTk.PhotoImage(Image.open('Lanius.png'))
+
+canvas8 = tk.Canvas(quiz_frame2, width = 100, height = 100)
+playbutton7 = tk.Button(quiz_frame2, text = "oihfdoahfawbhuivwaboi", image = Lanius, command = nextpage)
+playbutton7.configure(width=500,height=100, bg='black')
+playbutton_menu7 = canvas2.create_window(50,50)
+playbutton7.pack()
+
+playbutton7.place(x=500, y=550)
+
+Vulpes = ImageTk.PhotoImage(Image.open('Vulpes.png'))
+
+canvas9 = tk.Canvas(quiz_frame2, width = 100, height = 100)
+playbutton8 = tk.Button(quiz_frame2, text = "oihfdoahfawbhuivwaboi", image = Vulpes, command = nextpage)
+playbutton8.configure(width=500,height=100,bg='black')
+playbutton_menu8 = canvas2.create_window(50,50)
+playbutton8.pack()
+
+playbutton8.place(x=0, y=550)
 
 quiz_frame2.pack()
