@@ -71,7 +71,7 @@ canvas.pack(fill='both', expand=True,)
 
 canvas.create_image(0,0, image=bg1, anchor="nw")
 
-#------------------------------------------------------------------------------
+#-----------------------------------Question 1---------------------------------------------
 #score value
 score = 0
 
@@ -121,7 +121,7 @@ playbutton2.place(x=500, y=550)
 
 canvas4 = tk.Canvas(quiz_frame, width = 100, height = 100)
 playbutton3 = tk.Button(quiz_frame, text = "oihfdoahfawbhuivwaboi", image = ans3, command = nextpage)
-playbutton3.configure(width=500, bg='black')
+playbutton3.configure(width=480, bg='black')
 playbutton_menu3 = canvas2.create_window(50,50)
 playbutton3.pack()
 
@@ -139,7 +139,7 @@ playbutton4.place(x=0, y=650)
 
 quiz_frame.pack()
 
-#------------------------------------------------------------------------------
+#---------------------------------Question 2-----------------------------------------------
 
 #defines the background image
 bg2 = tk.PhotoImage(file = "nextquest.png")
@@ -156,9 +156,10 @@ canvas.create_image(0,0, image=bg2, anchor="nw")
 
 BACK2 = ImageTk.PhotoImage(Image.open('restart.png'))
 
-def goback2():
+def goback():
   global score
-  score -= 10
+  if score ==10:
+    score -= score
   print(score)
   quiz_frame.forget()
   start_frame.pack()
@@ -166,7 +167,7 @@ def goback2():
   quiz_frame3.forget()
   
 canvas6 = tk.Canvas(quiz_frame2, width = 100, height = 100)
-playbutton5 = tk.Button(quiz_frame2, text = "oihfdoah", image = BACK2, command = goback2)
+playbutton5 = tk.Button(quiz_frame2, text = "oihfdoah", image = BACK2, command = goback)
 playbutton5.configure(width=300, bg='black')
 playbutton_menu5 = canvas2.create_window(50,50)
 playbutton5.pack()
@@ -188,7 +189,7 @@ Joshua = ImageTk.PhotoImage(Image.open('Joshua.png'))
 
 canvas7 = tk.Canvas(quiz_frame2, width = 100, height = 100)
 playbutton6 = tk.Button(quiz_frame2, text = "oihfdoahfawbhuivwaboi", image = Joshua, command = addscore)
-playbutton6.configure(width=500,height=100, bg='black')
+playbutton6.configure(width=480,height=100, bg='black')
 playbutton_menu6 = canvas2.create_window(50,50)
 playbutton6.pack()
 
@@ -216,7 +217,7 @@ playbutton8.place(x=0, y=550)
 
 quiz_frame2.pack()
 
-#------------------------------------------------------------------------------
+#--------------------------------Question 3------------------------------------------------
 
 bg3 = tk.PhotoImage(file = "Cliffshot.png")
 
@@ -228,12 +229,62 @@ canvas.pack(fill='both',)
 
 canvas.create_image(0,0, image=bg3, anchor="nw")
 
+def addscore():
+  global score
+  score += 10
+  print(score)
+  quiz_frame3.forget()
+  quiz_frame4.pack()
+
+def nextpage3():
+  quiz_frame3.forget()
+  quiz_frame4.pack()
+
+def goback():
+  global score
+  if score >=10:
+    score -= score
+  print(score)
+  quiz_frame.forget()
+  start_frame.pack()
+  quiz_frame2.forget()
+  quiz_frame3.forget()
+
 B1 = ImageTk.PhotoImage(Image.open('B1.png'))
 
-canvas10 = tk.Canvas(quiz_fram3, width = 100, height = 100)
-playbutton9 = tk.Button(quiz_frame3, text = "oihfdoahfawbhuivwaboi", image = Vulpes,)
+canvas10 = tk.Canvas(quiz_frame3, width = 100, height = 100)
+playbutton9 = tk.Button(quiz_frame3, text = "oihfdoahfawbhuivwaboi", image = B1, command = addscore)
 playbutton9.configure(width=500,height=100,bg='black')
-playbutton_menu9 = canvas2.create_window(50,50)
+playbutton_menu9 = canvas10.create_window(50,50)
 playbutton9.pack()
+playbutton9.place(x=0, y=550)
+
+B2 = ImageTk.PhotoImage(Image.open('B2.png'))
+
+canvas11 = tk.Canvas(quiz_frame3, width = 100, height = 100)
+playbutton10 = tk.Button(quiz_frame3, text = "oihfdoahfawbhuivwaboi", image = B2, command = nextpage3)
+playbutton10.configure(width=500,height=100,bg='black')
+playbutton_menu10 = canvas11.create_window(50,50)
+playbutton10.pack()
+playbutton10.place(x=500, y=550)
+
+B3 = ImageTk.PhotoImage(Image.open('B3.png'))
+
+canvas12 = tk.Canvas(quiz_frame3, width = 100, height = 100)
+playbutton11 = tk.Button(quiz_frame3, text = "oihfdoahfawbhuivwaboi", image = B3, command = nextpage3)
+playbutton11.configure(width=480,height=100,bg='black')
+playbutton_menu11 = canvas12.create_window(50,50)
+playbutton11.pack()
+playbutton11.place(x=1000, y=550)
+
+BACK = ImageTk.PhotoImage(Image.open('restart.png'))
+
+canvas13 = tk.Canvas(quiz_frame3, width = 100, height = 100)
+playbutton12 = tk.Button(quiz_frame3, text = "oihfdoah", image = BACK, command = goback)
+playbutton12.configure(width=300, bg='black')
+playbutton_menu12 = canvas13.create_window(50,50)
+playbutton12.pack()
+
+playbutton12.place(x=0, y=650)
 
 quiz_frame3.pack()
