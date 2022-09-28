@@ -40,7 +40,7 @@ startbutton = ImageTk.PhotoImage(Image.open('Start.png'))
 #this is the code for the button to start the quiz.
 canvas1 = tk.Canvas(start_frame, width = 100, height = 100)
 playbutton = tk.Button(start_frame, text = "oihfdoahfawbhuivwaboi", image = startbutton, command = startquiz)
-playbutton.configure(width=520, bg='black')
+playbutton.configure(width=500, bg='black')
 playbutton_menu = canvas1.create_window(10,10)
 playbutton.pack()
 
@@ -52,7 +52,7 @@ quitbutton = ImageTk.PhotoImage(Image.open('Quit.png'))
 #this is the code to quit the GUI
 canvas2 = tk.Canvas(start_frame, width = 100, height = 100)
 playbutton1 = tk.Button(start_frame, text = "oihfdoahfawbhuivwaboi", image = quitbutton, command = root.destroy)
-playbutton1.configure(width=520, bg='black')
+playbutton1.configure(width=500, bg='black')
 playbutton_menu1 = canvas2.create_window(50,50)
 playbutton1.pack()
 
@@ -78,7 +78,9 @@ score = 0
 def nextpage():
   quiz_frame.forget()
   quiz_frame2.pack()
-  
+
+
+  #when restarting the test, it will set the score to zero
 def restart():
   global score
   if score <= 1:
@@ -88,6 +90,7 @@ def restart():
   start_frame.pack()
   quiz_frame2.forget()
   quiz_frame3.forget()
+  quiz_frame4.forget()
 #this is for the correct answer, it adds ten to the score when the correct answer is clicked
 def addscore():
   global score
@@ -156,15 +159,18 @@ canvas.create_image(0,0, image=bg2, anchor="nw")
 
 BACK2 = ImageTk.PhotoImage(Image.open('restart.png'))
 
+#this is also a restart function, it will check if the score is greater than or equal to 1 it will subtract the score by itself, going to zero
 def goback():
   global score
-  if score ==10:
+  if score >=1:
     score -= score
   print(score)
   quiz_frame.forget()
   start_frame.pack()
   quiz_frame2.forget()
   quiz_frame3.forget()
+  quiz_frame4.forget()
+
   
 canvas6 = tk.Canvas(quiz_frame2, width = 100, height = 100)
 playbutton5 = tk.Button(quiz_frame2, text = "oihfdoah", image = BACK2, command = goback)
@@ -242,13 +248,14 @@ def nextpage3():
 
 def goback():
   global score
-  if score >=10:
+  if score >=1:
     score -= score
   print(score)
   quiz_frame.forget()
   start_frame.pack()
   quiz_frame2.forget()
   quiz_frame3.forget()
+  quiz_frame4.forget()
 
 B1 = ImageTk.PhotoImage(Image.open('B1.png'))
 
@@ -277,10 +284,16 @@ playbutton_menu11 = canvas12.create_window(50,50)
 playbutton11.pack()
 playbutton11.place(x=1000, y=550)
 
-BACK = ImageTk.PhotoImage(Image.open('restart.png'))
+canvas6 = tk.Canvas(quiz_frame2, width = 100, height = 100)
+playbutton5 = tk.Button(quiz_frame2, text = "oihfdoah", image = BACK2, command = goback)
+playbutton5.configure(width=300, bg='black')
+playbutton_menu5 = canvas2.create_window(50,50)
+playbutton5.pack()
+
+BACK3 = ImageTk.PhotoImage(Image.open('restart.png'))
 
 canvas13 = tk.Canvas(quiz_frame3, width = 100, height = 100)
-playbutton12 = tk.Button(quiz_frame3, text = "oihfdoah", image = BACK, command = goback)
+playbutton12 = tk.Button(quiz_frame3, text = "oihfdoah", image = BACK3, command = goback)
 playbutton12.configure(width=300, bg='black')
 playbutton_menu12 = canvas13.create_window(50,50)
 playbutton12.pack()
@@ -288,3 +301,27 @@ playbutton12.pack()
 playbutton12.place(x=0, y=650)
 
 quiz_frame3.pack()
+
+#-----------------------------------Question 4-------------------------------------------------
+
+bg4 = tk.PhotoImage(file = "76.png")
+
+LABEL = tk.Label(quiz_frame4, image=bg4,width=100,)
+LABEL.place(x=0,y=0,relwidth=1, relheight=1)
+
+canvas = tk.Canvas(quiz_frame4, width=1920, height=1080)
+canvas.pack(fill='both',)
+
+canvas.create_image(0,0, image=bg4, anchor="nw")
+
+TRUE = ImageTk.PhotoImage(Image.open('True.png'))
+
+canvas14 = tk.Canvas(quiz_frame4, width = 100, height = 100)
+playbutton13 = tk.Button(quiz_frame4, text = "oihfdoah", image = TRUE, command = goback)
+playbutton13.configure(width=500, bg='black')
+playbutton_menu13 = canvas14.create_window(50,50)
+playbutton13.pack()
+
+playbutton13.place(x=250, y=550)
+
+quiz_frame4.pack()
