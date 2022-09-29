@@ -22,6 +22,12 @@ quiz_frame2 = tk.Frame(root,width=1000, height=1000)
 quiz_frame3 = tk.Frame(root,width=1000, height=1000)
 quiz_frame4 = tk.Frame(root,width=1000, height=1000)
 final_frame = tk.Frame(root,width=1000, height=1000)
+end_frame = tk.Frame(root,width=1000, height=1000)
+end_frame1 = tk.Frame(root,width=1000, height=1000)
+end_frame2 = tk.Frame(root,width=1000, height=1000)
+end_frame3 = tk.Frame(root,width=1000, height=1000)
+end_frame4 = tk.Frame(root,width=1000, height=1000)
+end_frame5 = tk.Frame(root,width=1000, height=1000)
 #defines the background image
 bg = tk.PhotoImage(file = "Fallout.png")
 
@@ -92,6 +98,8 @@ def restart():
   quiz_frame2.forget()
   quiz_frame3.forget()
   quiz_frame4.forget()
+  final_frame.forget()
+  end_frame.forget()
 #this is for the correct answer, it adds ten to the score when the correct answer is clicked
 def addscore():
   global score
@@ -171,8 +179,9 @@ def goback():
   quiz_frame2.forget()
   quiz_frame3.forget()
   quiz_frame4.forget()
+  end_frame.forget()
+  final_frame.forget()
 
-  
 canvas6 = tk.Canvas(quiz_frame2, width = 100, height = 100)
 playbutton5 = tk.Button(quiz_frame2, text = "oihfdoah", image = BACK2, command = goback)
 playbutton5.configure(width=300, bg='black')
@@ -257,7 +266,8 @@ def goback():
   quiz_frame2.forget()
   quiz_frame3.forget()
   quiz_frame4.forget()
-
+  end_frame.forget()
+  final_frame.forget()
 B1 = ImageTk.PhotoImage(Image.open('B1.png'))
 
 canvas10 = tk.Canvas(quiz_frame3, width = 100, height = 100)
@@ -322,6 +332,9 @@ def addscore():
   quiz_frame4.forget()
   final_frame.pack()
 
+def nextpage4():
+  quiz_frame4.forget()
+  final_frame.pack()
 
 TRUE = ImageTk.PhotoImage(Image.open('True.png'))
 
@@ -336,20 +349,145 @@ playbutton13.place(x=250, y=550)
 FALSE = ImageTk.PhotoImage(Image.open('False.png'))
 
 canvas15 = tk.Canvas(quiz_frame4, width = 100, height = 100)
-playbutton14 = tk.Button(quiz_frame4, text = "oihfdoah", image = FALSE, command = nextpage)
+playbutton14 = tk.Button(quiz_frame4, text = "oihfdoah", image = FALSE, command = nextpage4)
 playbutton14.configure(width=500, bg='black')
 playbutton_menu14 = canvas15.create_window(50,50)
 playbutton14.pack()
+playbutton14.place(x=750, y=550)
 
-canvas16 = tk.Canvas(quiz_frame3, width = 100, height = 100)
-playbutton15 = tk.Button(quiz_frame3, text = "oihfdoah", image = BACK3, command = goback)
+canvas16 = tk.Canvas(quiz_frame4, width = 100, height = 100)
+playbutton15 = tk.Button(quiz_frame4, text = "oihfdoah", image = BACK3, command = nextpage4)
 playbutton15.configure(width=300, bg='black')
 playbutton_menu15 = canvas16.create_window(50,50)
 playbutton15.pack()
-
-playbutton12.place(x=0, y=650)
-
-playbutton14.place(x=750, y=550)
-
+playbutton15.place(x=0, y=650)
 
 quiz_frame4.pack()
+
+#-----------------------Question 5----------------------------------------
+
+bg5 = tk.PhotoImage(file = "end.png")
+
+LABEL = tk.Label(final_frame, image=bg5,width=100,)
+LABEL.place(x=0,y=0,relwidth=1, relheight=1)
+
+canvas = tk.Canvas(final_frame, width=1920, height=1080)
+canvas.pack(fill='both',)
+
+canvas.create_image(0,0, image=bg5, anchor="nw")
+
+def addscore5():
+  global score
+  score += 10
+  print(score)
+  if score == 50:
+    final_frame.forget()
+    end_frame.pack()
+  if score == 40:
+    final_frame.forget()
+    end_frame1.pack()
+    
+  if score == 30:
+    final_frame.forget()
+    end_frame2.pack()
+    
+  if score == 20:
+    final_frame.forget()
+    end_frame3.pack()
+    
+  if score == 10:
+    final_frame.forget()
+    end_frame4.pack()
+
+  if score == 0:
+    final_frame.forget()
+    end_frame5.pack()
+
+    
+def nextpage5():
+  final_frame.forget()
+  end_frame.pack()
+  
+yes = ImageTk.PhotoImage(Image.open('Yuppers.png'))
+
+canvas17 = tk.Canvas(final_frame, width = 100, height = 100)
+playbutton15 = tk.Button(final_frame, text = "oihfdoah", image = yes, command = nextpage5)
+playbutton15.configure(width=500, bg='black')
+playbutton_menu15 = canvas16.create_window(50,50)
+playbutton15.pack()
+playbutton15.place(x=750, y=550)
+
+no = ImageTk.PhotoImage(Image.open('Noing.png'))
+
+canvas16 = tk.Canvas(final_frame, width = 100, height = 100)
+playbutton15 = tk.Button(final_frame, text = "oihfdoah", image = no, command = addscore5)
+playbutton15.configure(width=500, bg='black')
+playbutton_menu15 = canvas16.create_window(50,50)
+playbutton15.pack()
+playbutton15.place(x=250, y=550)
+
+final_frame.pack()
+#--------------------------Final score--------------------------------------
+bga = tk.PhotoImage(file = "endingimage1.png")
+
+LABEL = tk.Label(end_frame, image=bga,width=100,)
+LABEL.place(x=0,y=0,relwidth=1, relheight=1)
+
+canvas = tk.Canvas(end_frame, width=1920, height=1080)
+canvas.pack(fill='both',)
+
+canvas.create_image(0,0, image=bga, anchor="nw")
+  
+bgb = tk.PhotoImage(file = "endingimage2.png")
+
+LABEL = tk.Label(end_frame1, image=bgb,width=100,)
+LABEL.place(x=0,y=0,relwidth=1, relheight=1)
+
+canvas = tk.Canvas(end_frame1, width=1920, height=1080)
+canvas.pack(fill='both',)
+
+canvas.create_image(0,0, image=bgb, anchor="nw")
+  
+
+bgc = tk.PhotoImage(file = "endingimage3.png")
+
+LABEL = tk.Label(end_frame2, image=bgc,width=100,)
+LABEL.place(x=0,y=0,relwidth=1, relheight=1)
+
+canvas = tk.Canvas(end_frame2, width=1920, height=1080)
+canvas.pack(fill='both',)
+
+canvas.create_image(0,0, image=bgc, anchor="nw")
+  
+
+bgd = tk.PhotoImage(file = "endingimage4.png")
+
+LABEL = tk.Label(end_frame3, image=bgd,width=100,)
+LABEL.place(x=0,y=0,relwidth=1, relheight=1)
+
+canvas = tk.Canvas(end_frame3, width=1920, height=1080)
+canvas.pack(fill='both',)
+
+canvas.create_image(0,0, image=bgd, anchor="nw")
+  
+
+bge = tk.PhotoImage(file = "endingimage5.png")
+
+LABEL = tk.Label(end_frame4, image=bge,width=100,)
+LABEL.place(x=0,y=0,relwidth=1, relheight=1)
+
+canvas = tk.Canvas(end_frame4, width=1920, height=1080)
+canvas.pack(fill='both',)
+
+canvas.create_image(0,0, image=bge, anchor="nw")
+  
+
+bgf = tk.PhotoImage(file = "endingimage6.png")
+
+LABEL = tk.Label(end_frame5, image=bgf,width=100,)
+LABEL.place(x=0,y=0,relwidth=1, relheight=1)
+
+canvas = tk.Canvas(end_frame5, width=1920, height=1080)
+canvas.pack(fill='both',)
+
+canvas.create_image(0,0, image=bgf, anchor="nw")
