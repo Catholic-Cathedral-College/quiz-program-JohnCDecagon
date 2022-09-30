@@ -118,7 +118,6 @@ playbutton1.pack()
 playbutton1.place(x=0, y=550)
 
 
-
 ans2 = ImageTk.PhotoImage(Image.open('Untitled.png'))
 
 canvas3 = tk.Canvas(quiz_frame, width = 100, height = 100)
@@ -190,6 +189,7 @@ playbutton5.pack()
 
 playbutton5.place(x=0, y=650)
 
+#the score system is quite simple and primitive, but it works well.
 def addscore():
   global score
   score += 10
@@ -389,6 +389,7 @@ canvas.pack(fill='both',)
 
 canvas.create_image(0,0, image=bg5, anchor="nw")
 
+#this is to switch between which ending frame depending on how well you have done on the quiz
 def addscore5():
   global score
   score += 10
@@ -441,6 +442,10 @@ playbutton15.place(x=250, y=550)
 
 final_frame.pack()
 #--------------------------Final score--------------------------------------
+
+#all of these are frames that hold images pertaining to how much you got correct. if you got 4 out of 5, the if statement will send you to the frame that will show you that you have gotten 4 correct.
+
+#this first frame is if you got 5 out 5 correct
 bga = tk.PhotoImage(file = "endingimage1.png")
 
 LABEL = tk.Label(end_frame, image=bga,width=100,)
@@ -450,7 +455,8 @@ canvas = tk.Canvas(end_frame, width=1920, height=1080)
 canvas.pack(fill='both',)
 
 canvas.create_image(0,0, image=bga, anchor="nw")
-  
+
+#the second is if you got 4 out 5
 bgb = tk.PhotoImage(file = "endingimage2.png")
 
 LABEL = tk.Label(end_frame1, image=bgb,width=100,)
@@ -461,7 +467,7 @@ canvas.pack(fill='both',)
 
 canvas.create_image(0,0, image=bgb, anchor="nw")
   
-
+#this is if you got 3 out of 5
 bgc = tk.PhotoImage(file = "endingimage3.png")
 
 LABEL = tk.Label(end_frame2, image=bgc,width=100,)
@@ -472,7 +478,7 @@ canvas.pack(fill='both',)
 
 canvas.create_image(0,0, image=bgc, anchor="nw")
   
-
+#this is if you got 2 out of 5
 bgd = tk.PhotoImage(file = "endingimage4.png")
 
 LABEL = tk.Label(end_frame3, image=bgd,width=100,)
@@ -483,7 +489,7 @@ canvas.pack(fill='both',)
 
 canvas.create_image(0,0, image=bgd, anchor="nw")
   
-
+#this is if you got 1 out 5
 bge = tk.PhotoImage(file = "endingimage5.png")
 
 LABEL = tk.Label(end_frame4, image=bge,width=100,)
@@ -494,7 +500,7 @@ canvas.pack(fill='both',)
 
 canvas.create_image(0,0, image=bge, anchor="nw")
   
-
+#this is if you got none of them correct
 bgf = tk.PhotoImage(file = "endingimage6.png")
 
 LABEL = tk.Label(end_frame5, image=bgf,width=100,)
