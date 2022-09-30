@@ -268,6 +268,7 @@ def goback():
   quiz_frame4.forget()
   end_frame.forget()
   final_frame.forget()
+  
 B1 = ImageTk.PhotoImage(Image.open('B1.png'))
 
 canvas10 = tk.Canvas(quiz_frame3, width = 100, height = 100)
@@ -336,6 +337,18 @@ def nextpage4():
   quiz_frame4.forget()
   final_frame.pack()
 
+def goback():
+  global score
+  if score >=1:
+    score -= score
+  print(score)
+  quiz_frame.forget()
+  start_frame.pack()
+  quiz_frame2.forget()
+  quiz_frame3.forget()
+  quiz_frame4.forget()
+  end_frame.forget()
+  final_frame.forget()
 TRUE = ImageTk.PhotoImage(Image.open('True.png'))
 
 canvas14 = tk.Canvas(quiz_frame4, width = 100, height = 100)
@@ -356,7 +369,7 @@ playbutton14.pack()
 playbutton14.place(x=750, y=550)
 
 canvas16 = tk.Canvas(quiz_frame4, width = 100, height = 100)
-playbutton15 = tk.Button(quiz_frame4, text = "oihfdoah", image = BACK3, command = nextpage4)
+playbutton15 = tk.Button(quiz_frame4, text = "oihfdoah", image = BACK3, command = goback)
 playbutton15.configure(width=300, bg='black')
 playbutton_menu15 = canvas16.create_window(50,50)
 playbutton15.pack()
